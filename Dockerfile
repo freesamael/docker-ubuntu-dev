@@ -12,4 +12,5 @@ RUN apt-get update --quiet --quiet \
 		android-tools-fsutils \
 		openjdk-8-jdk \
 	&& apt-get install --no-install-recommends --yes \
-		bc
+		bc \
+		rsync
