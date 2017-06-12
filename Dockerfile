@@ -10,4 +10,6 @@ RUN apt-get update --quiet --quiet \
 		u-boot-tools \
 		mtd-utils \
 		android-tools-fsutils \
-		openjdk-8-jdk
+		openjdk-8-jdk \
+	&& apt-get install --no-install-recommends --yes \
+		bc
