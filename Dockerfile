@@ -16,6 +16,7 @@ RUN apt-get update --quiet --quiet \
 		openjdk-8-jdk \
 	&& apt-get install --no-install-recommends --yes \
 		bc \
+		kmod \
 		rsync
 
 RUN apt-get update --quiet --quiet \
