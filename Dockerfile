@@ -1,4 +1,4 @@
-FROM vicamo/android-pdk:xenial-openjdk-8
+FROM vicamo/android-pdk:bionic-openjdk-8
 
 ARG USERNAME
 ARG USERID
