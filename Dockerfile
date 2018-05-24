@@ -2,6 +2,7 @@ FROM vicamo/android-pdk:trusty-openjdk-8
 
 ARG USERNAME
 ARG USERID
+ARG KVMGID
 
 RUN apt-get update --quiet --quiet \
 	&& apt-get install --no-install-recommends --yes \
@@ -31,6 +32,12 @@ RUN useradd --comment 'Android Development Account' \
 		--uid ${USERID} \
 		${USERNAME} \
 	&& (echo "${USERNAME}:${USERNAME}" | chpasswd) \
+	&& adduser ${USERNAME} audio \
+	&& adduser ${USERNAME} video \
+	&& (if [ -n "${KVMGID}" ]; then \
+		addgroup --system --gid ${KVMGID} kvm \
+			&& adduser ${USERNAME} kvm; \
+	fi) \
 	&& adduser ${USERNAME} sudo \
 	&& (echo "${USERNAME} ALL=NOPASSWD: ALL" > /etc/sudoers.d/${USERNAME}) \
 	&& chmod 0440 /etc/sudoers.d/${USERNAME}
