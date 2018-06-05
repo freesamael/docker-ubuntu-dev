@@ -32,7 +32,7 @@ RUN useradd --comment 'Android Development Account' \
 	&& (echo "${USERNAME}:${USERNAME}" | chpasswd) \
 	&& adduser ${USERNAME} audio \
 	&& adduser ${USERNAME} video \
-	&& (if [ -n "${KVMGID}" ]; then \
+	&& (if [ -n "${KVMGID}" -a "${KVMGID}" != "0" ]; then \
 		addgroup --system --gid ${KVMGID} kvm \
 			&& adduser ${USERNAME} kvm; \
 	fi) \
