@@ -16,7 +16,9 @@ RUN apt-get update --quiet --quiet \
 	&& apt-get install --no-install-recommends --yes \
 		bc \
 		kmod \
-		rsync
+		rsync \
+		python3-dev \
+		python3-pip
 
 RUN apt-get update --quiet --quiet \
 	&& apt-get install --no-install-recommends --yes \
