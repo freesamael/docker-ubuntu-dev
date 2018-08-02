@@ -13,18 +13,21 @@ RUN apt-get update --quiet --quiet \
 		curl \
 		u-boot-tools \
 		mtd-utils \
-	&& apt-get install --no-install-recommends --yes \
+		imagemagick \
+		gettext \
 		bc \
 		kmod \
 		rsync \
 		python3-dev \
-		python3-pip
+		python3-pip \
+		python-mako
 
 RUN apt-get update --quiet --quiet \
 	&& apt-get install --no-install-recommends --yes \
 		bash-completion \
 		sudo \
-		time
+		time \
+		view
 
 RUN useradd --comment 'Android Development Account' \
 		--home /home/${USERNAME} --no-create-home \
